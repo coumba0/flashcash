@@ -5,7 +5,7 @@ import coumba0.flashcash.model.User;
 import coumba0.flashcash.service.LinkService;
 import coumba0.flashcash.service.SessionService;
 import coumba0.flashcash.service.UserService;
-import com.evrard.siteperso.service.flashcash.*;
+
 import coumba0.flashcash.service.flashcash.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
