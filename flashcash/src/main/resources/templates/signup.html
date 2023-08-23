@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../bootstrap.min.css" rel="stylesheet">
+    <link href="../index.css" rel="stylesheet">
+    <title>Inscription</title>
+</head>
+
+<body class="text-center container-fluid">
+
+    <form class="col-md-5 mx-auto" th:action="@{/signup}" th:object="${signupform}" method="POST">
+        <h1 class="h1">Inscription</h1>
+
+        <div class="form-floating">
+            <input type="text" name="first-name" id="first-name" placeholder="Prénom" class="form-control"
+                   th:field="*{firstName}" />
+            <label for="first-name">Prénom </label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" name="last-name" id="last-name" placeholder="nom" class="form-control"
+                   th:field="*{lastName}" />
+            <label for="last-name">Nom </label>
+        </div>
+
+        <div class="form-floating">
+            <div th:if="${emailExist}" class="alert alert-danger" role="alert">Mail deja assigné</div>
+            <input type="email" name="email" id="email" placeholder="nom@exemple.com" class="form-control"
+                   th:field="*{mail}">
+            <label for="email">Email</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" name="password" id="password" placeholder="Mot de passe" class="form-control"
+                   th:field="*{password}">
+            <label for="password">Mot de passe</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" name="confirm-password" id="confirm-password"
+                   placeholder="Confirmez votre mot de passe" class="form-control" th:field="*{confirmPassword}" />
+            <label for="confirm-password">Confirmez votre mot de passe </label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Se souvenir de moi
+            </label>
+        </div>
+        <button class="w-50 btn btn-lg btn-primary" type="submit">Inscription</button>
+        <p class="mt-5 mb-3 text-muted">2023</p>
+    </form>
+
+</body>
+
+</html>
