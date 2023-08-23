@@ -1,205 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="style.css" rel="stylesheet">
-  <title>Profil</title>
+  <link href="../bootstrap.min.css" rel="stylesheet">
+  <link href="../index.css" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
-    }
-
-    .header {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 0;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .nav-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .nav-item {
-      margin-right: 20px;
-    }
-
-    .nav-link {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .profile {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-    }
-
-    .profile-image {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-
-    .profile-name {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .main {
-      padding: 20px;
-      text-align: center;
-    }
-
-    .main-title {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .user-info {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .user-info-item {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-
-    .user-info-value {
-      font-weight: bold;
-      color: #007bff;
-    }
-
-    .footer {
-      background-color: #f0f8ff;
-      padding: 20px 0;
-      color: #333;
-    }
-
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .footer-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .footer-item {
-      margin-bottom: 10px;
-    }
-
-    .footer-link {
-      color: #333;
-      text-decoration: none;
+    .bg-blue {
+      background-color: blue;
     }
   </style>
+  <title>Profil</title>
 </head>
 
-<body>
-<header class="header">
-  <div class="logo">
-    <img src="path/to/your/logo.png" alt="Logo" class="logo-image">
-  </div>
-
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="logo">
-        <img src="path/to/your/logo.png" alt="Logo" class="logo-image">
-      </div>
-      <ul class="nav-list">
-        <li class="nav-item"><a class="nav-link" href="/personal">Personnel</a></li>
-        <li class="nav-item"><a class="nav-link" href="/science">Science</a></li>
-        <li class="nav-item"><a class="nav-link" href="/politics">Politique</a></li>
-        <li class="nav-item"><a class="nav-link" href="/other">Autre</a></li>
+<body class="container-fluid bg-dark-subtle">
+<header class="mb-5 bg-blue pt-1 pb-2 rounded-3">
+  <nav class="h5 navbar navbar-expand text-light navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav container-fluid text-center row">
+        <li class="nav-item col"><a class="nav-link" href="/home">Home</a></li>
+        <li class="nav-item col"><a class="nav-link" href="/transfer">Transfer</a></li>
+        <li class="nav-item col"><a class="nav-link" href="/profile">Profile</a></li>
+        <li class="nav-item col"><a class="nav-link" href="/add-contact">Contact</a></li>
+        <li class="nav-item col"><a class="nav-link" href="/signout">Sign out</a></li>
       </ul>
-      <div class="profile">
-        <a href="/profile.html" class="profile-link">
-          <img src="image/pp-empty.png" alt="pp" class="profile-image">
-          <p class="profile-name">Pseudo</p>
-        </a>
-      </div>
     </div>
   </nav>
 </header>
+<main>
+  <h1 class="text-center">Profil</h1>
+  <h3><a href="/flashcash">-Flashcash</a></h3>
 
-<main class="main">
-  <h1 class="main-title">Profil</h1>
-  <div class="container">
-    <table class="table table-bordered table-hover">
-      <thead>
-      <tr>
-        <th scope="col">User</th>
-        <th scope="col">Amount</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td th:text="${user.mail}"></td>
-        <td th:text="${user.account.amount}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="user-info">
+  <table class="table text-center">
+    <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="${user.mail}"></td>
+      <td th:text="${user.account.amount}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div>
     <p>
-      Votre id: <span th:text="${user.id}"></span> <br>
-      Votre prénom : <span th:text="${user.firstName}"></span> <br>
-      Votre nom : <span th:text="${user.lastName}"></span> <br>
+      Votre id : <span th:text="${user.id}"></span> <br>
+      Votre  prénom : <span th:text="${user.firstName}"></span> <br>
+      Votre nom: <span th:text="${user.lastName}"></span> <br>
       Votre mail : <span th:text="${user.mail}"></span> <br>
-      Votre solde actuel: <span th:text="${user.account.amount}"></span> <br>
+      Votre solde : <span th:text="${user.account.amount}"></span> <br>
+
+
     </p>
   </div>
 
-
 </main>
 
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-section">
-      <h2 class="footer-title">Section 1</h2>
-      <ul class="footer-list">
-        <li class="footer-item"><a class="footer-link" href="#">Link 1</a></li>
-        <li class="footer-item"><a class="footer-link" href="#">Link 2</a></li>
-        <li class="footer-item"><a class="footer-link" href="#">Link 3</a></li>
+<footer class="container-fluid mt-5 pt-5 pb-5 bg-dark rounded-3 text-light">
+  <div class="navbar navbar-expand rounded-3 navbar-dark">
+    <div class="container-fluid row">
+      <ul class="container-fluid text-center col">
+        <li class="list-group-item h6"><a class="nav-link" href="#">Titre</a></li>
+        <li class="list-group-item"><a class="nav-link" href="#">SousTitre 1</a></li>
+        <li class="list-group-item"><a class="nav-link" href="#">SousTitre 2</a></li>
       </ul>
-    </div>
-    <div class="footer-section">
-      <h2 class="footer-title">Section 2</h2>
-      <ul class="footer-list">
-        <li class="footer-item"><a class="footer-link" href="#">Link 1</a></li>
-        <li class="footer-item"><a class="footer-link" href="#">Link 2</a></li>
-        <li class="footer-item"><a class="footer-link" href="#">Link 3</a></li>
+      <ul class="container-fluid text-center col">
+        <li class="list-group-item h6"><a class="nav-link" href="#">Titre</a></li>
+        <li class="list-group-item"><a class="nav-link" href="#">SousTitre 1</a></li>
+        <li class="list-group-item"><a class="nav-link" href="#">SousTitre 2</a></li>
       </ul>
-    </div>
-    <div class="footer-section">
-      <h2 class="footer-title">Section 3</h2>
-      <ul class="footer-list">
-        <li class="footer-item"><a class="footer-link" href="#">Link 1</a></li>
-        <li class="footer-item"><a class="footer-link" href="#">Link 2</a></li>
-        <li class="footer-item"><a class="footer-link" href="#">Link 3</a></li>
+      <ul class="container-fluid text-center col">
+        <li class="list-group-item h6"><a class="nav-link" href="#">Titre</a></li>
+        <li class="list-group-item"><a class="nav-link" href="#">SousTitre 1</a></li>
+        <li class="list-group-item"><a class="nav-link" href="#">SousTitre 2</a></li>
       </ul>
     </div>
   </div>

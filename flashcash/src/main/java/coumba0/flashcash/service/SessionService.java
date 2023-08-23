@@ -21,4 +21,6 @@ public class SessionService {
                 .orElseThrow( () -> new RuntimeException("user with mail not found"));
     }
 
+    public void clearSession() {
+    }
 }

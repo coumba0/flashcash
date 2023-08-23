@@ -5,7 +5,6 @@ import coumba0.flashcash.model.User;
 import coumba0.flashcash.service.LinkService;
 import coumba0.flashcash.service.SessionService;
 import coumba0.flashcash.service.UserService;
-
 import coumba0.flashcash.service.flashcash.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -94,7 +93,7 @@ public class FlashcashController {
         return new ModelAndView( "flashcash/transfer-to-contact", "transferForm", new TransferForm());
     }
 
-    @PostMapping("transfer-to-contact")
+    @PostMapping("/transfer-to-contact")
     public ModelAndView transfer(Model model, @ModelAttribute("transferForm") TransferForm form) {
         flashcashService.transfer(form);
         List<Transfer> transfers = flashcashService.findTransactions();
